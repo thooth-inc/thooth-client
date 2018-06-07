@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Select an account</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <p>You already have a primary account with primary email <b>{{modalCtrl.userDetails.primaryEmail}}</b>.</p>
+    <p><b>Do you want to go with the configured Account?</b></p>
+    <p>(You will loose your last configured emails if you click on <b>No</b>.)</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="modalCtrl.ok()">Yes</button>
+    <button class="btn btn-warning" type="button" ng-click="modalCtrl.cancel()">No</button>
+</div>

@@ -1,0 +1,27 @@
+<div class="container login animated bounceInDown" ng-init="vm.initAccount()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="logo"><img src="assets/images/logo-marriot.png" alt="Marriot"/></div>
+            <h1>Organize Marriott mails in a better way</h1>
+            <div class="mailproopt">
+                <h3>Sign in using any email account</h3>
+                <div class="mailprologo">
+                    <img src="assets/images/gmail.png" alt="Gmail">
+                    <img src="assets/images/outlook.png" alt="Outlook">
+                    <img src="assets/images/yahoo.png" alt="Yahoo">
+                    <img src="assets/images/other.png" alt="Other Email">
+                </div>
+                <div class="loginbox">
+                    <form ng-submit="vm.addAccount()">
+                        <input type="email" class="" ng-model="vm.email" placeholder="Enter your Email Address" required>
+                        <input type="submit" class="" value="SIGN IN NOW">
+                    </form>
+                    <!--<span class="text-capitalize">Please keep you unique user ID : {{vm.userID}}</span>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" ng-app="marriottEmail">
+
+<head>
+    <meta charset="utf-8">
+    <base href="/" />
+    <title>MCE</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Marriott Email</title>
+    <link rel="icon" href="assets/images/MarriottApple57x57.png" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700" rel="stylesheet">
+
+    <!--All Css files should go here-->
+    <!-- build:css assets/css/marriott-app.min.css -->
+    <link rel="stylesheet" href="node_modules/toastr/build/toastr.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="node_modules/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/marriott.css">
+    <link rel="stylesheet" href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" type="text/css"/>
+    <!-- endbuild -->
+
+    <!--All Js library files should go here (only libraries)-->
+    <!-- build:js js/vendor.min.js -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-touch/angular-touch.js"></script>
+    <script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="node_modules/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="node_modules/toastr/build/toastr.min.js"></script>
+    <script src="app/shared/nxLibrary/nxLibrary.js"></script>
+    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>
+    <!-- endbuild -->
+</head>
+
+<body>
+    <!-- Use a custom component to render a app -->
+    <app>Loading app...</app>
+
+    <!--All application's Js files should go here (only application files)-->
+    <!-- build:js js/marriott-app.min.js -->
+    <script src="app/app.config.js"></script>
+    <script src="app/app.component.js"></script>
+    <script src="app/route.config.js"></script>
+    <script src="app/components/accounts/account.component.js"></script>
+    <script src="app/components/accounts/account.service.js"></script>
+    <script src="app/components/brands/brand.component.js"></script>
+    <script src="app/components/brands/brand.service.js"></script>
+    <script src="app/components/emails/email.component.js"></script>
+    <script src="app/components/emails/email.service.js"></script>
+    <script src="app/components/accounts"></script>
+    <script src="app/components/accounts/modal-instance/modalInstanceController.js"></script>
+    <script src="app/components/emails/modal-instance/deleteAccountController.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>

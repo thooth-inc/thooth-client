@@ -1,0 +1,19 @@
+<div ng-init="BrandsCtrl.init()" class="animated bounceInRight">
+    <header>
+        <!--<button class="excl-btn"><img src="assets/images/ex-cl-btn.png" alt=""></button>-->
+        <div class="header-logo"><img src="assets/images/marriot-logo.png" alt=""></div>
+    </header>
+    <div class="wrapper">
+        <div class="main-content">
+            <div class="cllogo-wrapper">
+                <h3>Select brand with you want to continue and click on view emails, you can change anytime.</h3>
+                <div class="brandlogowrap" ng-scrollbars ng-scrollbars-config="BrandsCtrl.scrollConfigBrands">
+
+                    <div class="brandlogo" ng-repeat="brand in BrandsCtrl.brandDetails track by $index" ng-click="BrandsCtrl.redirectToViewMails(brand)">
+                        <img src="{{brand.brand_image}}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

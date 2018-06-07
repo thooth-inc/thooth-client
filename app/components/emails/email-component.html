@@ -1,0 +1,229 @@
+<div ng-init="vm.init()">
+    <script>
+        function resizeIframe(obj) {
+            obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+    <header>
+        <button class="excl-btn" ng-click="vm.toggleLSideBar = !vm.toggleLSideBar"><img
+                src="assets/images/ex-cl-btn.png" alt=""></button>
+        <div class="header-logo"><img src="assets/images/marriot-logo.png" alt=""></div>
+    </header>
+    <!--<button id="btn" ng-click="vm.toggleLSideBar = !vm.toggleLSideBar" ng-class="{'expand-mail' : vm.toggleLSideBar}">Change Class</button>-->
+    <div class="wrapper">
+        <div class="lsidebar" ng-class="{'expanded' : vm.toggleLSideBar}">
+            <div class="addnew" ng-click="vm.addAnotherAccount()">
+                <a class="" href="">
+                    <span class="addnewbtntext">ADD NEW ACCOUNT&nbsp;&nbsp;</span>
+                    <i class="glyphicon glyphicon-plus"></i>
+                </a>
+            </div>
+            <!--{{ vm.accounts }}-->
+            <!--<div class="serviceprobox active">
+                <div class="splogo">
+                    <img src="assets/images/gmail-sm.png" alt="">&nbsp;<span>Gmail</span>
+                </div>
+                <div class="emailaccount">john.smith@gmail.com <span class="icon-logout"><i class="glyphicon glyphicon-remove-circle"></i></span></div>-->
+            <uib-accordion>
+                <div uib-accordion-group class="panel-default" is-open="vm.googleOpen"
+                     ng-click="vm.openSidebarIfNotExpanded()">
+                    <uib-accordion-heading>
+                        <div class="icon-mp" ng-class="vm.gmailAccounts.length > 0 ? '' : 'disabled-email'">
+                            <img src="assets/images/gmail-sm.png" alt="Gmail" style="display: inline-block;">
+                            <span class="email-title">
+                                &nbsp;&nbsp;Gmail
+                                <i class="pull-right glyphicon"
+                                   ng-class="{'glyphicon-chevron-down': vm.googleOpen, 'glyphicon-chevron-right': !vm.googleOpen}">
+                                </i>
+                            </span>
+                        </div>
+                    </uib-accordion-heading>
+
+                    <div ng-class="vm.currentlySelected == email.emailId ? 'emailid-active' : ''"
+                         ng-repeat="email in vm.gmailAccounts">
+                        <div class="emailaccount">
+                            <span class="emailtext" ng-click="vm.switchMailAccount(email)">{{email.emailId}}</span>
+                            <span class="glyphicon glyphicon-flag" ng-if="email.isPrimary"></span>
+                            <span class="icon-logout">
+                                <i class="glyphicon glyphicon-remove-circle"
+                                   ng-click="vm.deleteAccount(email.accountId,email.emailId)"></i>
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+                <div uib-accordion-group class="panel-default" is-open="vm.outlookOpen"
+                     ng-click="vm.openSidebarIfNotExpanded()">
+                    <uib-accordion-heading>
+                        <div class="icon-mp" ng-class="vm.outlookAccounts.length > 0 ? '' : 'disabled-email'">
+                            <img src="assets/images/outlook-sm.png" alt="Outlook" style="display: inline-block;">
+                            <span class="email-title">
+                                &nbsp;Outlook
+                            <i class="pull-right glyphicon"
+                               ng-class="{'glyphicon-chevron-down': vm.outlookOpen, 'glyphicon-chevron-right': !vm.outlookOpen}"></i></span>
+                            </span>
+                        </div>
+                    </uib-accordion-heading>
+
+                    <div ng-class="vm.currentlySelected == email.emailId ? 'emailid-active' : ''"
+                         ng-repeat="email in vm.outlookAccounts">
+                        <div class="emailaccount">
+                            <span class="emailtext" ng-click="vm.switchMailAccount(email)">{{email.emailId}}</span>
+                            <span class="glyphicon glyphicon-flag" ng-if="email.isPrimary"></span>
+                            <span class="icon-logout">
+                            <i class="glyphicon glyphicon-remove-circle"
+                               ng-click="vm.deleteAccount(email.accountId,email.emailId)"></i></span></div>
+                    </div>
+                </div>
+                <div uib-accordion-group class="panel-default" is-open="vm.yahooOpen"
+                     ng-click="vm.openSidebarIfNotExpanded()">
+                    <uib-accordion-heading>
+                        <div class="icon-mp" ng-class="vm.yahooAccounts.length > 0 ? '' : 'disabled-email'">
+                            <img src="assets/images/yahoo-sm.png" alt="Yahoo" style="display: inline-block;">
+                            <span class="email-title">
+                            &nbsp;&nbsp;Yahoo
+                            <i class="pull-right glyphicon"
+                               ng-class="{'glyphicon-chevron-down': vm.yahooOpen, 'glyphicon-chevron-right': !vm.yahooOpen}"></i></span>
+                        </div>
+                    </uib-accordion-heading>
+
+                    <div ng-class="vm.currentlySelected == email.emailId ? 'emailid-active' : ''"
+                         ng-repeat="email in vm.yahooAccounts">
+                        <div class="emailaccount">
+                            <span class="emailtext" ng-click="vm.switchMailAccount(email)">{{email.emailId}}</span>
+                            <span class="glyphicon glyphicon-flag" ng-if="email.isPrimary"></span>
+                            <span class="icon-logout">
+                            <i class="glyphicon glyphicon-remove-circle"
+                               ng-click="vm.deleteAccount(email.accountId,email.emailId)"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div uib-accordion-group class="panel-default" is-open="status.open">-->
+                <!--<uib-accordion-heading>-->
+                <!--&lt;!&ndash;<div class="splogo">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img src="assets/images/gmail-sm.png" alt="">&nbsp;<span><font>Gmail</font>&nbsp;<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i></span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--
+
+            <!--</uib-accordion-heading>-->
+
+                <!--<div ng-click="">-->
+                <!--<div class="emailaccount">Maitree@rishabhsoft.com <span class="icon-logout"><i-->
+                <!--class="glyphicon glyphicon-remove-circle"></i></span></div>-->
+                <!--</div>-->
+                <!--<div ng-click="">-->
+                <!--<div class="emailaccount">2nd <span class="icon-logout"><i-->
+                <!--class="glyphicon glyphicon-remove-circle"></i></span></div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--<div uib-accordion-group class="panel-default" is-open="status.open">-->
+                <!--<uib-accordion-heading>-->
+
+                <!--</uib-accordion-heading>-->
+
+                <!--<div ng-click="">-->
+                <!--<div class="emailaccount">Maitree@rishabhsoft.com <span class="icon-logout"><i-->
+                <!--class="glyphicon glyphicon-remove-circle"></i></span></div>-->
+                <!--</div>-->
+                <!--<div ng-click="">-->
+                <!--<div class="emailaccount">2nd <span class="icon-logout"><i-->
+                <!--class="glyphicon glyphicon-remove-circle"></i></span></div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--<div uib-accordion-group class="panel-default" is-open="status.open">-->
+                <!--<uib-accordion-heading>-->
+                <!--<div class="">-->
+                <!--<img src="assets/images/other-sm.png" alt="">&nbsp;<span>Other-->
+                <!--<i class="pull-right glyphicon"-->
+                <!--ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i></span>-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--</uib-accordion-heading>-->
+
+                <!--<div ng-click="">-->
+                <!--<div class="emailaccount">Maitree@rishabhsoft.com <span class="icon-logout"><i-->
+                <!--class="glyphicon glyphicon-remove-circle"></i></span></div>-->
+                <!--</div>-->
+                <!--<div ng-click="">-->
+                <!--<div class="emailaccount">2nd <span class="icon-logout"><i-->
+                <!--class="glyphicon glyphicon-remove-circle"></i></span></div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </uib-accordion>
+
+        </div>
+
+
+        <div class="main-content" ng-class="{'expand-mail' : vm.toggleMailPreview}">
+            <div class="mail-list">
+                <div class="brandtitle">
+                    <h1>{{vm.selectedBrandName}}</h1>
+
+                    <div class="btnchangebrand">
+                        <img src="assets/images/btn-brand-change.png" alt=""/>
+                        <a href="#" ng-click="vm.changeBrand()">CHANGE BRAND</a>
+                    </div>
+                </div>
+                <div class="serchmail">
+                    <div class="emailinput">
+                        <input type="text" placeholder="Search Emails" ng-model="subject">
+                        <button>
+                            <!--amit-->
+                            <img src="assets/images/icon-search.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="emailwrap" ng-scrollbars ng-scrollbars-config="vm.scrollConfigEmailList">
+                    <div class="row">
+                        <div ng-if="vm.dataloaded">
+                            <div class="col-md-6"
+                                 ng-repeat="email in vm.emailsResultSet | filter: {subject:subject} track by $index">
+                                <div class="emailbox rewards"
+                                     ng-class="{'active':$index == vm.selectedMail}"
+                                     ng-click="vm.getMailBodies(email.message_id, $index)">
+                                    <div class="catimg">
+                                        <img ng-if="email.email_image" src="{{email.email_image}}" alt="">
+                                        <img ng-if="!email.email_image" ng-src="{{vm.defaultImage}}"
+                                             alt="Default Image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="!vm.dataloaded" class="emailwrapmargin">
+                            <h4>Do you wish to view the promotion mails from Marriott?</h4>
+                            <button ng-click="vm.fetchMarriottMails()" type="button" class="primary"
+                                    value="Get Marriott Mails!">Get Marriott Mails!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-excol">
+                <i ng-click="vm.toggleMailPreview = !vm.toggleMailPreview"
+                   class="glyphicon glyphicon-resize-full"
+                   title="Expand"></i>
+            </div>
+            <div class="mail-preview" ng-scrollbars ng-scrollbars-config="vm.scrollConfigEmailPreview">
+                <div class="attachment" ng-if="vm.emails.files.length > 0">
+                    <span><b><i class="glyphicon glyphicon-paperclip"></i> &nbsp;Attachments:</b></span>
+
+                    <div class="attachment-name" ng-repeat="file in vm.emails.files">
+                        <a ng-click="vm.getImageUrl(file.file_id)">{{file.file_name}}</a>
+                    </div>
+                    <hr style="border: solid gainsboro;border-width: 1px;">
+                </div>
+                <!--{{vm.emails.message_content}}-->
+                <div class="reset-this">
+                    <div class="emailBody" ng-bind-html="vm.emails.message_content"></div>
+                </div>
+
+                <!--<div  ng-bind-html="vm.emails.message_content" class="emailBody"></div>-->
+            </div>
+        </div>
+    </div>
+</div>
