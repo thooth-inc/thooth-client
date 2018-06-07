@@ -3,9 +3,9 @@
   "description": "This app is demostrating the use of OAUTH v2.0 in email aggregation of different email providers like gmail,yahoo,AOL & outlook with the help of context.io.",
   "main": "index.js",
   "authors": [
-    "Amit Mahida"
+    ""
   ],
-  "license": "ISC",
+  "license": "",
   "homepage": "",
   "dependencies": {
     "ng-scrollbars": "^0.0.11"
