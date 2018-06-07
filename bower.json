@@ -1,6 +1,6 @@
 {
   "name": "marriot-email-aggregation",
-  "description": "This app is demostrating the use of OAUTH v2.0 in email aggregation of different email providers like gmail,yahoo,AOL & outlook with the help of context.io.",
+  "description": "This app displays the use of OAUTH v2.0 in email aggregation of different providers like gmail, yahoo, AOL & outlook with the help of context.io.",
   "main": "index.js",
   "authors": [
     ""
